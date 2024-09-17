@@ -21,3 +21,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+// What are React Server Components? (RSC – Part 1)
