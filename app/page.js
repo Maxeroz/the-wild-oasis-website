@@ -5,3 +5,5 @@ export default function Page() {
     </div>
   );
 }
+
+// RSC vs. SSR: How are They Related? (RSC – Part 3)
