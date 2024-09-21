@@ -7,3 +7,4 @@ export default function Page() {
 }
 
 // RSC vs. SSR: How are They Related? (RSC – Part 3)
+// Project Planning: "The Wild Oasis" Customer Website
