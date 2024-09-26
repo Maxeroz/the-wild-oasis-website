@@ -28,3 +28,5 @@ export default function Home() {
     </main>
   );
 }
+
+// What is React Suspense?
