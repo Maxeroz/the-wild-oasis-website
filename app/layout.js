@@ -36,3 +36,4 @@ export default function RootLayout({ children }) {
 
 // What are React Server Components? (RSC – Part 1)
 // Error Handling: "Not Found" Errors
+// Analyzing Rendering in Our App
