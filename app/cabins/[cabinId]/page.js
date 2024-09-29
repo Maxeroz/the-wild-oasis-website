@@ -1,14 +1,16 @@
 import { getCabin } from "@/starter/others/data-service";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export async function generateMetadata({ params }) {
-  const { name } = await getCabin(params.cabinId);
+export const generateMetadata = async ({ params }) => {
+  const cabin = await getCabin(Number(params.cabinId));
+  if (!cabin) notFound();
 
-  return {
-    title: `Cabin ${name}`,
-  };
-}
+  const { name } = cabin;
+
+  return { title: `Cabin ${name}` };
+};
 
 export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
