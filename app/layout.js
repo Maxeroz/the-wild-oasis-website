@@ -38,3 +38,4 @@ export default function RootLayout({ children }) {
 // Error Handling: "Not Found" Errors
 // Analyzing Rendering in Our App
 // Partial Pre-Rendering
+// How Next.js Caches Data
