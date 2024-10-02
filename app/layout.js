@@ -39,3 +39,4 @@ export default function RootLayout({ children }) {
 // Analyzing Rendering in Our App
 // Partial Pre-Rendering
 // How Next.js Caches Data
+// Blurring the Boundary Between Server and Client (RSC – Part 4)
