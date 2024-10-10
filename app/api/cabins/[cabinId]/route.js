@@ -10,6 +10,6 @@ export async function GET(request, { params }) {
     ]);
     return Response.json({ cabin, bookedDates });
   } catch (error) {
-    Response.json({ message: "Cabin not found" });
+    return Response.json({ message: "Cabin not found" });
   }
 }
