@@ -1,6 +1,5 @@
-// import { NextResponse } from "next/server";
-
 import { auth } from "./app/_lib/auth";
+// import { NextResponse } from "next/server";
 
 // export function middleware(request) {
 //   console.log(request);
