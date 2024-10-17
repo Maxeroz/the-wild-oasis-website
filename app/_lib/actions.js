@@ -49,9 +49,9 @@ export async function deleteReservation(bookingId) {
 }
 
 export async function updateReservation(formData) {
-  const observations = formData.get("observations");
-  const numGuests = formData.get("numGuests");
-  const bookingId = formData.get("bookingId");
+  const observations = formData.get("observations").slice(0, 1000);
+  const numGuests = Number(formData.get("numGuests"));
+  const bookingId = Number(formData.get("bookingId"));
 
   // Object to Update
   const updatedFields = { observations, numGuests };
@@ -62,7 +62,7 @@ export async function updateReservation(formData) {
   const guestBookings = await getBookings(session.user.guestId);
   const guestBookingsIds = guestBookings.map((booking) => booking.id);
 
-  if (!guestBookingsIds.includes(Number(bookingId)))
+  if (!guestBookingsIds.includes(bookingId))
     throw new Error("You are not allowed to update this booking");
 
   const { data, error } = await supabase
@@ -76,7 +76,9 @@ export async function updateReservation(formData) {
     throw new Error("Booking could not be updated");
   }
 
+  revalidatePath(`/account/reservations/edit/${bookingId}`);
   revalidatePath("/account/reservations");
+
   redirect("/account/reservations");
 }
 

@@ -1,11 +1,12 @@
 import { updateReservation } from "@/app/_lib/actions";
 import { getBooking, getCabin } from "@/app/_lib/data-service";
-import { Button } from "./Button";
+import { Button, SubmitButton } from "../../../../_components/SubmitButton";
 
 export default async function Page({ params }) {
   const { reservationId } = params;
-  const booking = await getBooking(reservationId);
-  const cabin = await getCabin(booking.cabinId);
+  const { numGuests, observations, id, cabinId } =
+    await getBooking(reservationId);
+  const cabin = await getCabin(cabinId);
 
   const { maxCapacity } = cabin;
 
@@ -20,11 +21,12 @@ export default async function Page({ params }) {
         className="flex flex-col gap-6 bg-primary-900 px-12 py-8 text-lg"
       >
         {/* Скрытое поле для передачи bookingId */}
-        <input type="hidden" name="bookingId" value={booking.id} />
+        <input type="hidden" name="bookingId" value={id} />
 
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
           <select
+            defaultValue={numGuests}
             name="numGuests"
             id="numGuests"
             className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
@@ -46,13 +48,14 @@ export default async function Page({ params }) {
             Anything we should know about your stay?
           </label>
           <textarea
+            defaultValue={observations}
             name="observations"
             className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
           />
         </div>
 
         <div className="flex items-center justify-end gap-6">
-          <Button />
+          <SubmitButton>Update reservation</SubmitButton>
         </div>
       </form>
     </div>
