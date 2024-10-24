@@ -41,3 +41,4 @@ export default function RootLayout({ children }) {
 // What are Server Actions?
 // Setting Up the GitHub Repository
 // Deploying to Vercel
+// Updating Environment Variables and OAuth Credentials
