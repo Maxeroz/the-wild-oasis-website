@@ -40,3 +40,4 @@ export default function RootLayout({ children }) {
 // What is Middleware in Next.js?
 // What are Server Actions?
 // Setting Up the GitHub Repository
+// Deploying to Vercel
